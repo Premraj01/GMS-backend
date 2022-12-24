@@ -6,7 +6,6 @@ import { Model, Document } from "mongoose";
 export interface Customer {
 	name: string;
 	address: Address;
-
 	communication: Communication;
 	machine: Machine[];
 }
