@@ -4,12 +4,14 @@ import dotenv from "dotenv";
 import connectDB from "./config/db";
 import { notFound, errorHandler } from "./middleware/errorMiddleware";
 
+
 // Routes
 import customerRoutes from "./routes/customerRoutes";
+import productRoutes from "./routes/productRoutes"
 
 import morgan from "morgan";
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 const app = express();
 
 // Middleware to accept JSON in body
@@ -27,6 +29,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use("/api/customer/", customerRoutes);
+app.use("/api/product/", productRoutes);
 
 // Make uploads folder static
 const __dirname = path.resolve();

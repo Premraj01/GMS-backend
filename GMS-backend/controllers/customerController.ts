@@ -16,6 +16,8 @@ const getCustomers = asyncHandler(async (req, res) => {
 		throw new Error("User not found");
 	}
 });
+
+
 /**
  * Get all customer by id
  * @route GET /api/customers
