@@ -1,4 +1,4 @@
 import { Customer } from "./customerModel";
-import { Product } from "./productModel";
+import { ProductSchema } from "./productModel";
 
-export { Customer, Product };
+export { Customer, ProductSchema };

@@ -69,7 +69,7 @@ const productSchema = new Schema(
 	},
 );
 
-export const Product = model<ProductDocument>(
+export const ProductSchema = model<ProductDocument>(
 	"collection_Product",
 	productSchema,
 );

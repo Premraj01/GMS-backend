@@ -11,7 +11,7 @@ import productRoutes from "./routes/productRoutes"
 
 import morgan from "morgan";
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 const app = express();
 
 // Middleware to accept JSON in body
