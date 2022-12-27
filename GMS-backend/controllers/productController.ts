@@ -17,8 +17,8 @@ const getProducts = expressAsyncHandler(async (req, res) => {
 	}
 });
 
-const getProductById = expressAsyncHandler(async (req, res) => {
-	console.log("pp", req.params);
+const getProductByProductCode = expressAsyncHandler(async (req, res) => {
+	console.log(req.params);
 });
 
-export { getProducts, getProductById };
+export { getProducts, getProductByProductCode };
