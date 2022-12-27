@@ -1,7 +1,8 @@
 import dotenv from "dotenv";
-import { customers } from "./data/customer";
-import { Customer } from "./models/";
-import { CustomerDocument } from "./types/";
+// import { customers } from "./data/customer";
+import { product } from "./data/product";
+import { Product } from "./models/";
+import { ProductDocument } from "./types/";
 import connectDB from "./config/db";
 
 /**
@@ -19,9 +20,10 @@ connectDB();
 const importData = async () => {
 	try {
 		// Clear any existing items from DB
-		await Customer.deleteMany();
+		// await Customer.deleteMany();
+		await Product.deleteMany();
 
-		const createdUsers = await Customer.insertMany(customers);
+		const productCreated = await Product.insertMany(product);
 	} catch (error) {
 		console.error(`${error}`);
 		process.exit(1);
@@ -31,19 +33,19 @@ const importData = async () => {
 /**
  * Destroy all data on the database
  */
-const destroyData = async () => {
-	try {
-		// Clear any existing items from DB
-		await Customer.deleteMany();
+// const destroyData = async () => {
+// 	try {
+// 		// Clear any existing items from DB
+// 		await Customer.deleteMany();
 
-		console.log("Data Destroyed!");
+// 		console.log("Data Destroyed!");
 
-		process.exit();
-	} catch (error) {
-		console.error(`${error}`);
-		process.exit(1);
-	}
-};
+// 		process.exit();
+// 	} catch (error) {
+// 		console.error(`${error}`);
+// 		process.exit(1);
+// 	}
+// };
 
 // Check command line args to destroy or import data
-process.argv[2] === "-d" ? destroyData() : importData();
+// process.argv[2] === "-d" ? destroyData() : importData();
