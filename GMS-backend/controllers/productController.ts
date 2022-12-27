@@ -8,7 +8,7 @@ import { Product } from "../models";
  */
 const getProducts = expressAsyncHandler(async (req, res) => {
 	const products = await Product.find();
-console.log("products")
+
 	if (products) {
 		res.json(products);
 	} else {
@@ -18,7 +18,7 @@ console.log("products")
 });
 
 const getProductById = expressAsyncHandler(async (req, res) => {
-	console.log(req.params)
+	console.log("pp", req.params);
 });
 
-export {getProducts,getProductById}
+export { getProducts, getProductById };

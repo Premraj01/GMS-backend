@@ -24,6 +24,7 @@ const importData = async () => {
 		await Product.deleteMany();
 
 		const productCreated = await Product.insertMany(product);
+		console.log("product", productCreated);
 	} catch (error) {
 		console.error(`${error}`);
 		process.exit(1);
@@ -49,3 +50,5 @@ const importData = async () => {
 
 // Check command line args to destroy or import data
 // process.argv[2] === "-d" ? destroyData() : importData();
+
+importData();
