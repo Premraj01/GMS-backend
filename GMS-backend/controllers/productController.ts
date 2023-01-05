@@ -18,11 +18,14 @@ const getProducts = expressAsyncHandler(async (req, res) => {
   }
 });
 
+/**
+ *Get Product By ProductCode
+ */
 const getProductByProductCode = expressAsyncHandler(async (req, res) => {
   //console.log(req.params);
-  const { productCode } = req.params as { productCode: string };
+  const ProductCode = req.params;
   const products: Product[] = await ProductSchema.find({
-    productCode: productCode,
+    productCode: ProductCode,
   });
   //console.log(products);
   if (products) {
@@ -33,4 +36,19 @@ const getProductByProductCode = expressAsyncHandler(async (req, res) => {
   }
 });
 
-export { getProducts, getProductByProductCode };
+/**
+ * Product By ProductId
+ */
+const getProductById = expressAsyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const products = await ProductSchema.findById(req.params.id);
+  console.log(id);
+  if (products) {
+    res.json(products);
+  } else {
+    res.status(404);
+    throw new Error("ProductId not found");
+  }
+});
+
+export { getProducts, getProductByProductCode, getProductById };
